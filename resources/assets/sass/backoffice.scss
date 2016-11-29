@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
+* {
+	margin: 0;
+	padding: 0;
+	font: 300 14px Roboto, Arial, sans-serif;
+}
+.clearfix {
+	content: "";
+	display: table;
+	clear: both
+}
+ul {
+	list-style: none
+}
+body {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0
+}
+.container {
+	width: 100%;
+	height: 100%;
+	position: relative
+}
+
+/****************************************
+** MENU LATERAL *************************
+****************************************/
+
+aside {
+	width: 240px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #222;
+	z-index: 200;
+}
+.logo {
+	float: left;
+	width: 100%;
+	height: 110px;
+	background: #000;
+	text-align: center;
+	line-height: 110px
+}
+.logo svg {
+	display: inline-block;
+	width: 142px
+}
+
+.aside-menu {
+	display: block;
+	float: left
+}
+.aside-menu li {
+	display: inline-block;
+	width: 100%;
+	float: left;
+	padding: 17px 20px 17px 50px;
+	box-sizing: border-box;
+	color: #fff;
+	font-size: 16px;
+	position: relative
+}
+.aside-menu li.active, .aside-menu li:hover {
+	background: #444
+}
+.aside-menu li .counter {
+	display: inline-block;
+	position: absolute;
+	height: 24px;
+	width: 35px;
+	right: -10px;
+	top: 50%;
+	transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	background: #777;
+	line-height: 24px;
+	padding-left: 10px;
+	box-sizing: border-box
+}
+.aside-menu li .counter.active {
+	background: #5bc408
+}
+
+/****************************************
+** FIM MENU LATERAL *********************
+****************************************/
+
+
+
+/****************************************
+** MENU TOPO ****************************
+****************************************/
+
+header {
+	position: fixed;
+	width: 100%;
+	background: #000;
+	padding-left: 240px;
+	box-sizing: border-box;
+	top: 0;
+	left: 0;
+	color: #fff
+}
+header ul {
+	list-style: none;
+	display: block;
+	float: left
+}
+header .menu-principal li {
+	display: inline-block;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 30px;
+}
+header .menu-principal li.active, header .menu-principal li:hover {
+	background: #222
+}
+header a {
+	text-decoration: none;
+	font-size: 16px;
+	color: #fff
+}
+
+.login-box {
+	height: 50px;
+	padding-right: 50px;
+	float: right;
+}
+.login-content {
+	height: 50px;
+	line-height: 50px;
+	position: relative;
+	display: inline-block;
+	text-align: right;
+	padding: 0 20px;
+	box-sizing: border-box;
+	cursor: pointer
+}
+.login-content:hover, .login-content.active {
+	background: #222
+}
+.login-content .arrow-down {
+	width: 6.5px;
+	height: 3.6px;
+	display: inline-block;
+}
+.login-content .arrow-down .pol {
+	fill: #fff
+}
+.submenu {
+	position: absolute;
+	background: #444;
+	width: 200px;
+	top: 50px;
+	right: 0;
+	display: none
+}
+.login-content.active .submenu {
+	display: block !important
+}
+/* temp */
+.login-content:hover .submenu {
+	display: block !important
+}
+/* end temp */
+.submenu ul {
+	display: block;
+	width: 100%;
+}
+.submenu ul li {
+	width: 100%;
+	height: 50px;
+	float: left;
+	display: inline-block;
+	line-height: 50px;
+	text-align: left;
+	padding: 0 20px;
+	box-sizing: border-box
+}
+.submenu ul li:hover {
+	background: #555
+}
+.menu-principal a {
+	display: inline-block;
+	height: 50px;
+	float: left
+}
+/****************************************
+** FIM MENU TOPO ************************
+****************************************/
+
+/****************************************
+** MENU SECUNDARIO **********************
+****************************************/
+
+.second-menu-stats {
+	width: 100%;
+	background: #5bc408;
+	float: left
+}
+.second-menu-stats ul {
+	display: block;
+	float: left;
+	padding-left: 15px;
+	box-sizing: border-box
+}
+.second-menu-stats li {
+	height: 60px;
+	float: left;
+	display: inline-block;
+	line-height: 60px;
+}
+.second-menu-stats li .box.online {
+	border-left: 1px solid #fff
+}
+.second-menu-stats li .box {
+	display: inline-block;
+	height: 40px;
+	margin-top: 10px;
+	padding: 0 15px;
+}
+.second-menu-stats li .box * {
+	display: inline-block;
+	width: 100%;
+}
+.second-menu-stats li .box .type {
+	font-size: 14px;
+	line-height: 1em
+}
+.second-menu-stats li .box .number {
+	font-size: 26px;
+	line-height: 1em
+}
+
+
+
+/****************************************
+** FIM MENU SECUNDARIO ******************
+****************************************/
+
+
+main {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 140px 30px 30px 270px;
+	box-sizing: border-box;
+	z-index: 100;
+}
+

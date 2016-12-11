@@ -7,3 +7,21 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+/*.navbar {
+	background: $dark;
+}
+.navbar * {
+	color: $font-on-dark !important;
+}
+.navbar-nav li.active a {
+	background: $gray-dark !important;
+}*/
+.navbar {
+	margin-bottom: 0 !important
+}
+.table-store-img {
+	width: 32px;
+	height: 32px
+}

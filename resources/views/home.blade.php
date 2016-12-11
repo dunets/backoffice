@@ -8,7 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    
+                    {{ var_dump($errors) }}
                 </div>
             </div>
         </div>

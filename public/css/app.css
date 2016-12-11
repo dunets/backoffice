@@ -1909,7 +1909,7 @@ pre {
   line-height: 1.6;
   word-break: break-all;
   word-wrap: break-word;
-  color: #333333;
+  color: #222;
   background-color: #f5f5f5;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -2968,7 +2968,7 @@ legend {
   margin-bottom: 22px;
   font-size: 21px;
   line-height: inherit;
-  color: #333333;
+  color: #222;
   border: 0;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -4121,13 +4121,13 @@ tbody.collapse.in {
   clear: both;
   font-weight: normal;
   line-height: 1.6;
-  color: #333333;
+  color: #222;
   white-space: nowrap;
 }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
   text-decoration: none;
-  color: #262626;
+  color: #151515;
   background-color: #f5f5f5;
 }
 
@@ -6492,7 +6492,7 @@ button.list-group-item-danger.active:focus {
 }
 
 .panel-default > .panel-heading {
-  color: #333333;
+  color: #222;
   background-color: #fff;
   border-color: #d3e0e9;
 }
@@ -6503,7 +6503,7 @@ button.list-group-item-danger.active:focus {
 
 .panel-default > .panel-heading .badge {
   color: #fff;
-  background-color: #333333;
+  background-color: #222;
 }
 
 .panel-default > .panel-footer + .panel-collapse > .panel-body {
@@ -7686,6 +7686,24 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+
+/*.navbar {
+	background: $dark;
+}
+.navbar * {
+	color: $font-on-dark !important;
+}
+.navbar-nav li.active a {
+	background: $gray-dark !important;
+}*/
+.navbar {
+  margin-bottom: 0 !important;
+}
+
+.table-store-img {
+  width: 32px;
+  height: 32px;
 }
 
 /*# sourceMappingURL=app.css.map */

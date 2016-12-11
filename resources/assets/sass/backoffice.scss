@@ -1,3 +1,14 @@
+/* COLORS: */
+$green : #5bc408;
+
+$dark : #000;
+$gray-dark : #222;
+$gray-medium : #444;
+$gray-low : #777;
+
+$font-on-dark : #fff;
+
+
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
 * {
 	margin: 0;
@@ -10,14 +21,11 @@
 	clear: both
 }
 ul {
-	list-style: none
+	list-style: none;
 }
 body {
 	width: 100%;
 	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0
 }
 .container {
 	width: 100%;
@@ -32,17 +40,17 @@ body {
 aside {
 	width: 240px;
 	height: 100%;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
-	background: #222;
-	z-index: 200;
+	background: $gray-dark;
+	z-index: 999999999
 }
 .logo {
 	float: left;
 	width: 100%;
 	height: 110px;
-	background: #000;
+	background: $dark;
 	text-align: center;
 	line-height: 110px
 }
@@ -61,12 +69,12 @@ aside {
 	float: left;
 	padding: 17px 20px 17px 50px;
 	box-sizing: border-box;
-	color: #fff;
+	color: $font-on-dark;
 	font-size: 16px;
 	position: relative
 }
 .aside-menu li.active, .aside-menu li:hover {
-	background: #444
+	background: $gray-medium
 }
 .aside-menu li .counter {
 	display: inline-block;
@@ -79,13 +87,13 @@ aside {
 	-o-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	-webkit-transform: translateY(-50%);
-	background: #777;
+	background: $gray-low;
 	line-height: 24px;
 	padding-left: 10px;
 	box-sizing: border-box
 }
 .aside-menu li .counter.active {
-	background: #5bc408
+	background: $green
 }
 
 /****************************************
@@ -101,12 +109,13 @@ aside {
 header {
 	position: fixed;
 	width: 100%;
-	background: #000;
+	background: $dark;
 	padding-left: 240px;
 	box-sizing: border-box;
 	top: 0;
 	left: 0;
-	color: #fff
+	color: $font-on-dark;
+	z-index: 999999998
 }
 header ul {
 	list-style: none;
@@ -144,7 +153,7 @@ header a {
 	cursor: pointer
 }
 .login-content:hover, .login-content.active {
-	background: #222
+	background: $gray-dark
 }
 .login-content .arrow-down {
 	width: 6.5px;
@@ -156,7 +165,7 @@ header a {
 }
 .submenu {
 	position: absolute;
-	background: #444;
+	background: $gray-medium;
 	width: 200px;
 	top: 50px;
 	right: 0;
@@ -185,7 +194,7 @@ header a {
 	box-sizing: border-box
 }
 .submenu ul li:hover {
-	background: #555
+	background: $gray-low
 }
 .menu-principal a {
 	display: inline-block;
@@ -202,7 +211,7 @@ header a {
 
 .second-menu-stats {
 	width: 100%;
-	background: #5bc408;
+	background: $green;
 	float: left
 }
 .second-menu-stats ul {
@@ -218,7 +227,7 @@ header a {
 	line-height: 60px;
 }
 .second-menu-stats li .box.online {
-	border-left: 1px solid #fff
+	border-left: 1px solid $font-on-dark
 }
 .second-menu-stats li .box {
 	display: inline-block;
@@ -247,13 +256,28 @@ header a {
 
 
 main {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
 	padding: 140px 30px 30px 270px;
 	box-sizing: border-box;
 	z-index: 100;
 }
-
+main > section {
+	width: 100%;
+	height: 100%;
+}
+.table {
+	width: 100%;
+	border-spacing: 0;
+	float: left
+}
+.table thead {
+	background: $gray-low;
+	color: $font-on-dark;
+}
+.table thead th {
+	padding: 10px 0;
+	text-align: left;
+}
+.table img.preview {
+	width: 24px;
+	height: 24px
+}

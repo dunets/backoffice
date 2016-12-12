@@ -21,3 +21,6 @@ Route::get('home', 'HomeController@index');
 
 Route::get('store', 'StoreController@index');
 Route::get('store/show-product/{product_id}', 'StoreController@show');
+
+Route::get('wordpress/{image_name}', 'ImageController@showWordpress');
+Route::post('wordpress/upload', 'ImageController@upload');

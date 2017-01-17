@@ -52,13 +52,13 @@
 					</td>
 					<td>
 						@foreach($product['categories'] as $category)
-							{{$category['name']}}
+							{{$category['name']}}@if ($category != end($product['categories'])), @endif
 						@endforeach
 					</td>
 					<td>
 						@if(!empty($product['tags']))
 							@foreach($product['tags'] as $tag)
-								{{$tag}}
+								{{$tag['name']}}@if ($tag != end($product['tags'])), @endif
 							@endforeach
 						@else
 							-

@@ -12,8 +12,8 @@ class WooCommerce
 	 public function __construct(){
 		 $this->woocommerce = new Client(
 				'http://wordpress.dev',
-				'ck_09af03ef64898851e4743a6457a3e1f555572a17',
-				'cs_cda3fd56aff65f80dcd0b8c50664d917dc4d60f0',
+				'ck_988bd208ffc51d6a8bb917c4205e41cb7feb5f24',
+				'cs_122abc39b34f276c5f2ebf0ca9d5f076ee2af83f',
 				[
 					'wp_api' => true,
 					'version' => 'wc/v1',

@@ -13,6 +13,7 @@
 	<!-- Styles -->
 	<link href="/css/app.css" rel="stylesheet">
 	<link href="/css/simple-sidebar.css" rel="stylesheet">
+	<link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
 	<!-- Scripts -->
 	<script>
@@ -100,9 +101,12 @@
 	</div>
 	<!-- Scripts -->
 	<script src="/js/app.js"></script>
+	<script src="/js/moment.min.js"></script>
+	<script src="/js/bootstrap-datetimepicker.min.js"></script>
 	<script src="/tinymce/tinymce.min.js"></script>
 	<script src="/tinymce/jquery.tinymce.min.js"></script>
-	<script>tinymce.init({
+	<script>
+		tinymce.init({
 			selector:'#description',
 			menubar: false,
 			min_height: 300,
@@ -147,6 +151,10 @@
 			images_upload_url: '/wordpress/upload',
 			automatic_uploads: true
 			
+		});
+		
+		$('.datepicker').datetimepicker({
+			format: 'YYYY-MM-DD'
 		});
 	</script>
 </body>

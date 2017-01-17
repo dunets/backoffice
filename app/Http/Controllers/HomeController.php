@@ -24,7 +24,8 @@ class HomeController extends Controller
 	{
 		//return view('auth.home.index');
 		$d = new WooCommerce;
-		return $d->getProduct('12');
+		//return $d->getProductList();
+		return $d->getProduct('9');
 		return $d->getProductList([
 			'status' => 'any'
 		]);

@@ -18,6 +18,7 @@ class StoreController extends Controller
 		$data = $w->getProductList([
 			'status' => 'any'
 		]);
+		//return $data;
 		return view('auth.store.index', compact('data'));
 	}
 	
@@ -26,22 +27,5 @@ class StoreController extends Controller
 		$w = new WooCommerce;
 		$produto = $w->getProduct($product_id);
 		return view('auth.store.show', compact('produto'));
-	}
-	
-	public function upload(Request $request)
-	{
-		$this->validate($request, [
-					'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-			]);
-
-			$imageName = time().'.'.$request->image->getClientOriginalExtension();
-			$request->image->move(public_path('images'), $imageName);
-
-		/*return back()
-			->with('success','Image Uploaded successfully.')
-			->with('location',$imageName);*/
-		
-		return json_encode(array('location' => $imageName));
-		//return $imageName;
 	}
 }

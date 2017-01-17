@@ -264,6 +264,10 @@ header a {
   line-height: 1em;
 }
 
+.container-fluid .nav-tabs .active {
+  background: #fff !important;
+}
+
 /****************************************
 ** FIM MENU SECUNDARIO ******************
 ****************************************/

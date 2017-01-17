@@ -25,3 +25,15 @@
 	width: 32px;
 	height: 32px
 }
+.tab-pane {
+	border: 1px solid #ddd;
+	border-top: none;
+	padding: 20px 0
+}
+.container-fluid .nav-tabs .active a,
+.container-fluid .tab-content {
+	background: #fff !important
+}
+h4 .schedule {
+	color: #3097D1;
+}

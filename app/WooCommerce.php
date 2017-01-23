@@ -26,6 +26,53 @@ class WooCommerce
 		return $this->woocommerce->get('');
 	}
 	
+	public function validateProduct ($obj, $data = []) {
+		$obj->validate($data,
+		[
+			'name' => 'required',
+			'description' => 'required',
+			'short_description' => 'required',
+			
+			
+			'regular_price' => 'required',
+			'sale_price' => 'present',
+			
+			'date_on_sale_from' => 'present',
+			'date_on_sale_to' => 'present',
+			
+			'tax_status' => 'required',
+			'tax_class' => 'required',
+			
+			
+			'sku' => 'present',
+			'manage_stock' => 'required',
+			
+			'stock_quantity' => 'present',
+			'backorders' => 'required',
+			
+			'in_stock' => 'required',
+			'sold_individually' => 'required',
+			
+			
+			'weight' => 'present',
+			'length' => 'present',
+			'width' => 'present',
+			'height' => 'present',
+			
+			
+			'status' => 'required',
+			
+		]);
+		
+		$data['dimensions'] = array(
+			'length' => $data['length'],
+			'width' => $data['width'],
+			'height' => $data['height'],
+		);
+
+		return $data->except(['_method', '_token']);
+	}
+	
 	/*PRODUCTS*/
 	public function getProductList ($params = [])
 	{
@@ -35,6 +82,16 @@ class WooCommerce
 	public function getProduct($id = 0, $params = [])
 	{
 		return $this->woocommerce->get('products/' . $id, $params);
+	}
+	
+	public function updateProduct($id = 0, $params = [])
+	{
+		return $this->woocommerce->put('products/' . $id, $params);
+	}
+	
+	public function deleteProduct($id = 0)
+	{
+		return $this->woocommerce->delete('products/' . $id, ['force' => true]);
 	}
 	/*end PRODUCTS*/
 	

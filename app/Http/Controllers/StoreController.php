@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\WooCommerce;
 
+
 class StoreController extends Controller
 {
 	public function __construct()
@@ -25,7 +26,24 @@ class StoreController extends Controller
 	public function show($product_id)
 	{
 		$w = new WooCommerce;
-		$produto = $w->getProduct($product_id);
-		return view('auth.store.show', compact('produto'));
+		$product = $w->getProduct($product_id);
+		return view('auth.store.show', compact('product'));
+	}
+	
+	public function update(Request $data, $product_id)
+	{
+		//return $data->except(['_method', '_token', 'description', 'short-description']);
+		$w = new WooCommerce;
+		//return $data = $w->validateProduct($this, $data);
+		$data = $w->validateProduct($this, $data);
+		$w->updateProduct($product_id, $data);
+		return redirect('/store');
+	}
+	
+	public function destroy($product_id)
+	{
+		$w = new WooCommerce;
+		$w->deleteProduct($product_id);
+		return redirect('/store');
 	}
 }

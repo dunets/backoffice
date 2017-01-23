@@ -7721,4 +7721,13 @@ h4 .schedule {
   color: #3097D1;
 }
 
+.action {
+  text-decoration: underline !important;
+  cursor: pointer !important;
+}
+
+.action.delete-edit {
+  color: red !important;
+}
+
 /*# sourceMappingURL=app.css.map */

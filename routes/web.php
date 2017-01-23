@@ -19,8 +19,15 @@ Auth::routes();
 
 Route::get('home', 'HomeController@index');
 
-Route::get('store', 'StoreController@index');
-Route::get('store/show-product/{product_id}', 'StoreController@show');
+Route::resource('store', 'StoreController');
+
+/********************************
+***** upload routes *************
+*********************************/
 
 Route::get('wordpress/{image_name}', 'ImageController@showWordpress');
 Route::post('wordpress/upload', 'ImageController@upload');
+
+/********************************
+***** end upload routes *********
+*********************************/

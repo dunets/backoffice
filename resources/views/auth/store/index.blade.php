@@ -83,7 +83,7 @@
 					</td>
 					<td>
 						<div class="btn-group btn-group-primary">
-								<a href="{{ url('store/show-product')}}/{{$product['id']}}" class="btn btn-primary" type="button">Editar</a>
+								<a href="{{ url('store')}}/{{$product['id']}}" class="btn btn-primary" type="button">Editar</a>
 							<button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button"><span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">

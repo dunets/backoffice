@@ -1,0 +1,665 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,500');
+* {
+	margin: 0;
+	padding: 0;
+	font: 300 16px 'Roboto', sans-serif;
+	color: #547716;
+}
+.clearfix {
+	display: table;
+	content: "";
+	clear: both;
+}
+
+/*********************************
+****** HEAD **********************
+**********************************/
+
+.nav-bar {
+	display: block;
+	width: 100%;
+	height: 100px;
+	background: #fff;
+	float: left;
+	padding: 0 3%;
+	box-sizing: border-box
+}
+.nav-bar a {
+	text-decoration: none;
+	color: #547716;
+}
+.nav-bar a.active,
+.nav-bar a:hover {
+	color: #000
+}
+.nav-bar ul {
+	display: inline-block;
+	list-style: none;
+	float: right
+}
+.nav-bar ul li a {
+	font-size: 1.1em;
+	font-size: 1.1vw;
+}
+.nav-bar ul li, .home-btn {
+	display: inline-block;
+	float: left;
+	height: 100px;
+	line-height: 100px;
+	padding: 0 20px
+}
+.nav-bar ul li:last-child {
+	padding-right: 0
+}
+.home-btn {
+	padding-left: 0;
+	font-size: 2em;
+	font-size: 2vw;
+	font-weight: 500;
+	color: #000 !important
+}
+.home-btn img {
+	height: 70%;
+	margin-top: 15%
+}
+
+/*********************************
+****** end HEAD ******************
+**********************************/
+
+/*********************************
+****** MAIN **********************
+**********************************/
+
+main {
+	display: block;
+	width: 100%;
+	float: left;
+	padding: 0 3%;
+	box-sizing: border-box
+}
+/* temporary */
+.small-image {
+	height: 400px;
+}
+.small-image .white-box {
+	line-height: 400px;
+}
+/* end temporary */
+
+.home-container {
+	width: 100%;
+	float: left
+}
+
+.big-image {
+	width: 100%;
+	float: left;
+	position: relative
+}
+.large-image {
+	width: 97%;
+	float: left;
+	margin:0 3% 2% 0;
+	position: relative
+}
+.large-image .image {
+	width: 48.5%;
+	height: 100%;
+	float: left
+}
+.large-image.right .image {
+	float: right
+}
+.large-image.left .image {
+	float: left
+}
+.large-image .image img {
+	width: 100%;
+}
+
+.small-image {
+	width: 47%;
+	float: left;
+	margin: 0 3% 2% 0;
+	position: relative
+}
+
+.white-box {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	position: absolute;
+	background: #fff;
+	opacity: 0;
+}
+.large-image .white-box {
+	width: 51.5% !important;
+	opacity: 1 !important;
+	box-sizing: border-box;
+	position: relative;
+	float: left
+}
+.large-image.right .white-box {
+	left: 0;
+	top: 0;
+	text-align: right;
+	float: left;
+	padding-right: 3%;
+}
+.large-image.left .white-box {
+	right: 0;
+	top: 0;
+	text-align: left;
+	float: right;
+	padding-left: 3%;
+}
+.white-box .text-box {
+	display: inline-block;
+	max-width: 50%;
+	margin: 0 auto
+}
+.large-image .white-box .text-box {
+	max-width: 80%;
+	margin: 0
+}
+.white-box .text-box .title {
+	display: inline-block;
+	width: 100%;
+	font-weight: 500;
+	color: #222;
+	font-size: 2.5em;
+	font-size: 2.5vw;
+}
+.white-box .text-box .desc {
+	display: inline-block;
+	width: 100%;
+	font-size: 1.2em;
+	font-size: 1.2vw;
+	text-transform: uppercase
+}
+.large-image .white-box .text-box .title {
+	font-size: 3.1em;
+	font-size: 3.1vw;
+}
+.large-image .white-box .text-box .desc {
+	font-size: 1.8em;
+	font-size: 1.8vw;
+}
+.large-image:hover .white-box,
+.small-image:hover .white-box {
+	opacity: 1
+}
+
+.small-image img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	opacity: 0
+}
+
+
+.image-box {
+	width: 100%;
+	height: 400px;
+	float: left;
+	margin-bottom: 50px;
+	background: url(../img/Pauner/plaque.JPG) center no-repeat;
+	background-size: cover;
+}
+.map-container {
+	width: 47%;
+	float: left;
+	margin-left: 3%;
+	height: 500px;
+}
+.text-container, .form-container {
+	width: 50%;
+	float: left;
+	box-sizing: border-box;
+}
+.text-container p {
+	margin-bottom: 3%;
+	font-size: 1.1em;
+	font-size: 1.1vw;
+	color: #547716;
+}
+
+.form-container form {
+	width: 100%;
+}
+.form-container form .form-box {
+	width: 100%;
+	float: left;
+	margin-bottom: 15px
+}
+.form-container form label {
+	display: inline-block;
+	width: 100%;
+	font-size: 1.1em;
+	font-size: 1.1vw;
+}
+.form-container form input, .form-container form textarea {
+	width: 100%;
+	width: calc(100% - 32px);
+	border: 1px solid #add050;
+	outline: none;
+	padding: 7px 15px;
+	resize: none;
+	font-size: 1.1em;
+	font-size: 1.1vw;
+	margin-bottom: 10px
+}
+.form-container form button[type="submit"] {
+	border: 1px solid #add050;
+	outline: none;
+	padding: 7px 15px;
+	background: #fff;
+	cursor: pointer;
+	font-size: 1.1em;
+	font-size: 1.1vw;
+	color: #547716
+}
+.form-container form button[type="submit"]:hover {
+	background: #ccc
+}
+
+main h2 {
+	font-weight: 500;
+	color: #add050;
+	font-size: 2.5em;
+	font-size: 2.5vw;
+	margin: 10px 0 5px
+}
+.works-main {
+	padding: 0 2.5% 0 3% !important
+}
+
+
+.orders-container .form-container {
+	width: 100%;
+}
+.orders-container .input-box,
+.orders-container .radio-custom-box {
+	width: 50%;
+	float: right
+}
+.orders-container .radio-custom-box {
+	padding-left: 5%;
+	box-sizing: border-box
+}
+.radio-custom {
+	width: 45% !important;
+	float: left;
+	margin-right: 10%;
+	position: relative;
+	margin-bottom: 5%
+}
+.radio-custom:nth-child(2n+1) {
+	margin-right: 0
+}
+.radio-custom .view-image-btn {
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #fff url(../img/itens/plus.png) center no-repeat;
+	background-size: 46%;
+	cursor: pointer
+}
+.radio-custom .view-image-btn:hover {
+	background-size: 54%
+}
+.radio-custom > input{
+	visibility: hidden;
+	position: absolute
+}
+.radio-custom > input + div.radio-image {
+	cursor:pointer;
+	width: 100%;
+	height: 150px;
+}
+.radio-custom > input:checked + div.radio-image {
+	background-color: lightblue
+}
+.radio-image.t0 {
+	background: #f0f0f0 url(../img/planos/t0.jpg) center no-repeat;
+	background-size: contain
+}
+.radio-image.t1 {
+	background: #f0f0f0 url(../img/planos/t1.jpg) center no-repeat;
+	background-size: contain
+}
+.radio-image.t2 {
+	background: #f0f0f0 url(../img/planos/t2.jpg) center no-repeat;
+	background-size: contain
+}
+.radio-image.t3 {
+	background: #f0f0f0 url(../img/planos/t3.jpg) center no-repeat;
+	background-size: contain
+}
+
+.radio-type {
+	position: absolute;
+	display: inline-block;
+	bottom: 10px;
+	left: 15px;
+	font-size: 1.2em;
+	font-size: 1.2vw;
+	font-weight: 500
+}
+
+
+
+.slide-container {
+	position: fixed;
+	z-index: 999;
+	background: #fff;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+.slide-container.active {
+	display: block
+}
+.slide-container .image-container {
+	position: absolute;
+	max-height: 90%;
+	max-width: 90%;
+	top: 25%;
+	left: 25%;
+}
+.slide-container .close-button {
+	width: 5%;
+	height: 50px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #fff url(../img/itens/close.png) center no-repeat;
+	background-size: 50%;
+	cursor: pointer;
+	z-index: 999999
+}
+.slide-container .slide-text {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 3em;
+	font-size: 3vw;
+	font-weight: 500;
+	color: #add050;
+}
+.slide-container .slide-btn {
+	width: 5%;
+	height: 50px;
+	position: absolute;
+	height: 100%;
+	cursor: pointer;
+	z-index: 100
+}
+.slide-container .slide-btn.right {
+	right: 0;
+	background: url(../img/itens/next.png) center no-repeat;
+	background-size: 80%;
+}
+.slide-container .slide-btn.left {
+	left: 0;
+	background: url(../img/itens/back.png) center no-repeat;
+	background-size: 80%;
+}
+.slide-container .slide-btn.off {
+	opacity: .5;
+	cursor: not-allowed;
+}
+#works-container {
+	position: relative;
+	margin-bottom: 30px;
+	overflow-y: hidden;
+}
+#works-container .block {
+	float: left;
+	width: 33%;
+}
+#works-container .block img {
+	width: 100%
+}
+/*********************************
+****** end MAIN ******************
+**********************************/
+
+/*********************************
+****** FOOTER ********************
+**********************************/
+
+footer {
+	display: block;
+	width: 100%;
+	float: left;
+	background: #fff;
+	text-align: center;
+	position: relative;
+	height: 50px;
+}
+footer img {
+	height: 60%;
+	left: 3%;
+	top: 12%;
+	position: absolute;
+	-webkit-filter: saturate(0);
+	filter: saturate(0);
+	opacity: .2
+}
+footer img:hover {
+	-webkit-filter: saturate(1);
+	filter: saturate(1);
+	opacity: 1
+}
+.footer-box {
+	display: inline-block;
+	margin-right: 50px;
+	width: 20%;
+}
+.footer-box:last-child {
+	margin-right: 0
+}
+.footer-box .title {
+	font-size: 1.5em;
+	font-size: 1.5vw;
+	font-weight: 500;
+	color: #222;
+	text-transform: uppercase;
+	margin-bottom: 30px
+}
+.footer-box .desc {
+	font-size: 1.1em;
+	font-size: 1.1vw;
+}
+/*********************************
+****** end FOOTER ****************
+**********************************/
+
+/*********************************
+****** IMAGES ********************
+**********************************/
+
+.big-image{
+	background: url(../img/Pauner/Pauner0.JPG) center no-repeat;
+	background-size: cover
+}
+
+
+/*********************************
+****** end IMAGES ****************
+**********************************/
+
+
+.nav-bar-mobile {
+	display: none
+}
+.nav-langs {
+	position: absolute;
+	right: 3%;
+	top: 0;
+	opacity: .8
+}
+.nav-langs a {
+	display: inline-block;
+	margin-left: 10px;
+	font-size: 1emm;
+	font-size: 1vw
+}
+.nav-langs.pt .p {
+	color: #000
+}
+.nav-langs.fr .f {
+	color: #000
+}
+.nav-langs.en .e {
+	color: #000
+}
+
+
+@media (max-width: 800px) {
+	
+	/* navbar */
+	
+	.nav-bar {
+		height: 60px !important;
+	}
+	.nav-bar ul {
+		display: none
+	}
+	.nav-bar.active ul {
+		display: block;
+		position: fixed;
+		width: 100%;
+		height: 100% !important;
+		background: #fff;
+		margin: 0;
+		padding: 0;
+		left: 0;
+		top: 0;
+		z-index: 9998;
+		padding-top: 70px;
+	}
+	.nav-bar.active ul li {
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+		margin: 0;
+		padding: 0;
+	}
+	.nav-bar.active ul li a {
+		font-size: 24px !important;
+		margin: 0;
+		padding: 0;
+	}
+	.nav-bar ul li, .home-btn {
+		height: 60px;
+		line-height: 60px
+	}
+	.nav-bar-mobile {
+		display: block;
+		width: 50px;
+		height: 50px;
+		float: right;
+		z-index: 9999;
+	}
+	.nav-bar.active .nav-bar-mobile {
+		position: fixed;
+		right: 5%;
+		top: 0;
+	}
+	.nav-bar-mobile .button {
+		display: inline-block;
+		width: 50px;
+		height: 50px;
+		margin-top: 5px;
+		background: #fff url(../img/itens/menu.png) center no-repeat;
+		background-size: 28px !important;
+		cursor: pointer
+	}
+	.nav-bar.active .nav-bar-mobile .button {
+		background: #fff url(../img/itens/close.png) center no-repeat;
+		background-size: 24px !important;
+	}
+	
+	/* works */
+	.small-image {
+		width: 97%;
+		height: 400px;
+		float: left;
+		margin-right: 3%
+	}
+	.small-image .title {
+		font-size: 24px !important
+	}
+	.small-image .desc {
+		font-size: 14px !important
+	}
+	.large-image .title,
+	main h2 {
+		font-size: 21px !important
+	}
+	.large-image .desc {
+		font-size: 14px !important
+	}
+	
+	
+	/* orders */
+	
+	.orders-container .radio-custom-box,
+	.orders-container .input-box, .orders-container .radio-custom-box,
+	.text-container, .form-container {
+		width: 100% !important;
+		padding: 0;
+		float: left;
+	}
+	.text-container, .form-container {
+		margin-bottom: 30px !important
+	}
+	.orders-container .form-container {
+		padding: 0 !important
+	}
+	.form-container form label,
+	form button,
+	form input, 
+	form textarea,
+	.radio-type {
+		font-size: 16px !important
+	}
+	.slide-container .image-container {
+		max-width: 60%;
+		max-height: 70% !important
+	}
+	.slide-container .image-container img {
+		max-width: 100% !important;
+		height: 100%;
+	}
+	.slide-container .slide-text {
+		position: fixed;
+		font-size: 24px
+	}
+	.slide-container .slide-btn,
+	.slide-container .close-button {
+		position: fixed;
+		width: 10%;
+	}
+	.slide-container .slide-btn.right {
+		right: 0;
+	}
+	.map-container {
+		width: 100%;
+		margin: 0;
+	}
+	.text-container p {
+		font-size: 14px
+	}
+	.nav-bar .home-btn {
+		height: 60px !important;
+	}
+}

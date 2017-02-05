@@ -47,10 +47,31 @@ $(document).ready(function(){
 				if($(el).hasClass('delete-edit'))
 					$('#delete_form').submit()
 				else if($(el).hasClass('delete-list'))
-					$('#delete_form').attr('action', $(el).attr('href')).submit();
+					$('#delete_form').attr('action', $(el).attr('href')).submit(); 
 			}
 		);
 	});
+	
+	$('.action.delete-user').click(function(e){
+		e.preventDefault();
+		var el = $(this);
+		swal({
+			title: "Atenção!",
+			text: "Tem a certeza que pretende permanentemente eliminar o utilizador?",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "Sim, tenho a certeza",
+			cancelButtonText: "Cancelar",
+			closeOnConfirm: false
+			},
+			function(){
+				$('#delete_form').attr('action', $(el).attr('href')).submit();
+			}
+		);
+	});
+	
+	
 	
 	/********************************
 	**** END events *****************

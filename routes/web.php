@@ -21,6 +21,8 @@ Route::get('home', 'HomeController@index');
 
 Route::resource('store', 'StoreController');
 
+Route::resource('users', 'UsersController');
+
 /********************************
 ***** upload routes *************
 *********************************/

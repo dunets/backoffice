@@ -77,7 +77,6 @@ class WooCommerce
 	/*PRODUCTS*/
 	public function getProductTotalPages()
 	{
-		return 12;
 		$key = false;
 		$pages = 1;
 		while($key == false){
@@ -105,15 +104,6 @@ class WooCommerce
 			'Authorization: Basic '. base64_encode("ck_988bd208ffc51d6a8bb917c4205e41cb7feb5f24:cs_122abc39b34f276c5f2ebf0ca9d5f076ee2af83f"),
 		);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-		$content = curl_exec($ch);
-		return $content;
-		
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_URL, 
-			'http://wordpress.dev/wp-json/wc/v1/products'
-		);
-		curl_setopt($ch, CURLOPT_USERPWD,  "ck_988bd208ffc51d6a8bb917c4205e41cb7feb5f24:cs_122abc39b34f276c5f2ebf0ca9d5f076ee2af83f" );
 		$content = curl_exec($ch);
 		return $content;*/
 		

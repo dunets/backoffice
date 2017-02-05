@@ -15,8 +15,6 @@ class StoreController extends Controller
 	
 	public function index(Request $r)
 	{
-		//dd(json_encode(getallheaders($w->getProductList($r->input('page')))));
-		//dd($r->headers->all());
 		$w = new WooCommerce;
 		
 		$page = $r->input('page');

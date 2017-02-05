@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+	<h1>Produtos</h1>
 	<table class="table table-striped">
 		<thead>
 			<tr>

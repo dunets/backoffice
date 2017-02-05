@@ -7721,7 +7721,7 @@ h4 .schedule {
   color: #3097D1;
 }
 
-.action {
+.action::not(.delete-list) {
   text-decoration: underline !important;
   cursor: pointer !important;
 }

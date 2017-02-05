@@ -16,6 +16,8 @@ return [
 	
 	//form
 	'form-error' => 'Por favor preencha todos os campos corretamente!',
+	'form-success' => 'A sua mensagem foi enviada com sucesso!',
+	
 	'form-name' => 'Nome',
 	'form-tel' => 'Telefone',
 	'form-mail' => 'Email',

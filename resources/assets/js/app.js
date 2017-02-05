@@ -30,7 +30,9 @@ $(document).ready(function(){
 			: $('.sku-box').addClass('hidden');
 	});
 	
-	$('.action.delete-edit').click(function(){
+	$('.action.delete-edit, .action.delete-list').click(function(e){
+		e.preventDefault();
+		var el = $(this);
 		swal({
 			title: "Atenção!",
 			text: "Tem a certeza que pretende permanentemente apagar o produto?",
@@ -42,7 +44,10 @@ $(document).ready(function(){
 			closeOnConfirm: false
 			},
 			function(){
-				$('#delete_form').submit();
+				if($(el).hasClass('delete-edit'))
+					$('#delete_form').submit()
+				else if($(el).hasClass('delete-list'))
+					$('#delete_form').attr('action', $(el).attr('href')).submit();
 			}
 		);
 	});

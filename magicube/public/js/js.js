@@ -18,7 +18,13 @@ var imagens = {
 }
 
 $(window).on('load', function(){
+	
+	setTimeout(function(){
 		
+		$('.alert, .loader').remove();
+		
+	},2000);
+	
 	var col = 3;
 	if($(window).width() < 800) {
 		col = 2
@@ -30,15 +36,26 @@ $(window).on('load', function(){
 		offsetY: 8,
 		blockElement: '.block'
 	});
-});
-
-$(document).ready(function(){
 	
 	var wow = new WOW({
 		offset: -200,
 		mobile:       false
 	});
 	wow.init();
+	
+	$('body').removeClass('loading');
+});
+
+$(document).ready(function(){
+	
+	prepareForms();
+	
+	$('body.loading .loader')
+		.css(
+			'top', ($(window).height() - $('body.loading .loader').height()) / 2 + 'px'
+		).css(
+			'left', ($(window).width() - $('body.loading .loader').width()) / 2 + 'px'
+		)
 	
 	if (!device.tablet() && !device.mobile() && $(window).width() > 800) {
 		
@@ -284,10 +301,10 @@ var slideNext = function(){
 		var slide = parseInt($('.slide-container').attr('_index').replace('t',''));
 		
 		//changing selected radio-button
-		$('input[name=type]:checked', 'form').prop('checked', false);
+		$('input[name=typ]:checked', 'form').prop('checked', false);
 		$('.radio-custom-box')
 			.find('.radio-custom').eq(++slide)
-			.find('input[name=type]').prop('checked', true);
+			.find('input[name=typ]').prop('checked', true);
 		
 		slide = 't' + slide;
 		
@@ -299,13 +316,71 @@ var slidePrev = function(){
 		var slide = parseInt($('.slide-container').attr('_index').replace('t',''));
 		
 		//changing selected radio-button
-		$('input[name=type]:checked', 'form').prop('checked', false);
+		$('input[name=typ]:checked', 'form').prop('checked', false);
 		$('.radio-custom-box')
 			.find('.radio-custom').eq(--slide)
-			.find('input[name=type]').prop('checked', true);
+			.find('input[name=typ]').prop('checked', true);
 		
 		slide = 't' + slide;
 		
 		slideOpenPhoto(slide);
 	}
+}
+
+var prepareForms = function(){
+	$('form').submit(function(e){
+		e.preventDefault();
+		
+		
+		if($('input[name="typ"]').length > 0 && $('input[name="typ"]:checked').length == 0 )
+			errorMessage('radio')
+		else
+		
+			$.ajax({
+				url: $(this).attr('action'),
+				type: 'post',
+				dataType: 'json',
+				data: $(this).serialize(),
+				success: function(data) {
+					$('.form-container form').before('<div class="alert success"><p>' + data.message + '</p></div>');
+					setTimeout(function(){
+
+						$('.alert').remove();
+
+					},3000);
+				},
+				error: function(){
+					errorMessage('global');
+				}
+			});
+	});
+}
+
+var errorMessage = function(type){
+	var locale = $('input[name="locale"]').val();
+	
+	if(type == 'radio') {
+		var message = '';
+		if(locale == 'en')
+			message = 'Please select one plant!'
+		else if (locale == 'fr')
+			message = 'S\'il vous plaît sélectionner un plan!'
+		else
+			message = 'Por favor selecione uma planta!';
+	} else {
+		var message = '';
+		if(locale == 'en')
+			message = 'Please fill in all fields correctly!'
+		else if (locale == 'fr')
+			message = 'S\'il vous plaît remplir tous les champs correctement!'
+		else
+			message = 'Por favor preencha todos os campos corretamente!';
+	}
+		
+	$('.form-container form').before('<div class="alert alert-danger"><p>' + message + '</p></div>');
+	setTimeout(function(){
+
+		$('.alert').remove();
+
+	},3000);
 }

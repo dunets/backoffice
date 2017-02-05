@@ -13,14 +13,19 @@ class StoreController extends Controller
 		$this->middleware('auth');
 	}
 	
-	public function index()
+	public function index(Request $r)
 	{
+		//dd(json_encode(getallheaders($w->getProductList($r->input('page')))));
+		//dd($r->headers->all());
 		$w = new WooCommerce;
-		$data = $w->getProductList([
-			'status' => 'any'
-		]);
-		//return $data;
-		return view('auth.store.index', compact('data'));
+		
+		$page = $r->input('page');
+		if(empty($page) || $page < 1)
+			$page = 1;
+			
+		$data = $w->getProductList($page);
+		$pages = $w->getProductTotalPages();
+		return view('auth.store.index', compact(array('data', 'pages', 'page')));
 	}
 	
 	public function show($product_id)

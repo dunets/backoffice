@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -25,9 +24,6 @@
 		@if(!empty($data))
 			@foreach($data as $product)
 				<tr>
-					<!--<td>
-						<input type="checkbox" name="table-field-{{$product['id']}}">
-					</td>-->
 					<td>
 						{{$product['id']}}
 					</td>
@@ -51,9 +47,13 @@
 						@endif
 					</td>
 					<td>
-						@foreach($product['categories'] as $category)
-							{{$category['name']}}@if ($category != end($product['categories'])), @endif
-						@endforeach
+						@if(!empty($product['categories']))
+							@foreach($product['categories'] as $category)
+								{{$category['name']}}@if ($category != end($product['categories'])), @endif
+							@endforeach
+						@else
+							-
+						@endif
 					</td>
 					<td>
 						@if(!empty($product['tags']))
@@ -87,10 +87,9 @@
 							<button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button"><span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a href="#">Ver na loja</a></li>
-								<li><a href="#">Duplicar</a></li>
+								<li><a href="{{ $product['permalink'] }}" target="_blank">Ver na loja</a></li>
 								<li class="divider"></li>
-								<li><a href="#">Apagar</a></li>
+								<li><a href="{{ url('store')}}/{{$product['id']}}" class="action delete-list">Apagar</a></li>
 							</ul>
 						</div>
 					</td>
@@ -98,9 +97,32 @@
 			@endforeach
 		@endif
 	</table>
+	<nav aria-label="Page navigation">
+		<ul class="pagination" style="float:right">
+			<li class="@if($page == 1)disabled @endif">
+				<a href="@if($page > 1) {{ url('/store?page=' . ($page - 1)) }} @endif" aria-label="Previous">
+					<span aria-hidden="true">&laquo;</span>
+				</a>
+			</li>
+			@for ($i = 1; $i < ($pages+1) && $i < 11; $i++)
+				@if($i == 10)
+					<li class="disabled"><a>...</a></li>
+				@else
+					<li class="@if($page == $i)active @endif"><a href="{{ url('/store?page=' . $i) }}">{{ $i }}</a></li>
+				@endif
+			@endfor
+			<li class="@if($page == $pages)disabled @endif">
+				<a href="@if($page < $pages) {{ url('/store?page=' . ($page + 1)) }} @endif" aria-label="Next">
+					<span aria-hidden="true">&raquo;</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
 
-	<h3>Erros:</h3>
-	<code>
-		{{ var_dump($errors) }}
-	</code>
+
+	<div class="hidden">
+		{!! Form::open(['method' => 'delete', 'id' => 'delete_form']) !!}
+			<input type="text" name="id">
+		{!! Form::close() !!}
+	</div>
 @endsection

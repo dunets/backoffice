@@ -24,32 +24,43 @@ active
 <div class="orders-container">
 	<div class="form-container">
 		<h2>{{trans('messages.orders-h2')}}</h2>
-		<form action="/orders" method="post">
+		
+		
+		@if(count($errors) > 0)
+			<div class="alert alert-danger">
+				<p>{{trans('messages.form-error')}}</p>
+			</div>
+		@endif
+		
+		
+		<form action="/orders" id="form-with-radio" method="post">
 			{!! csrf_field() !!}
+			<input type="hidden" name="locale" value="{{ App::getLocale() }}">
+			<input type="hidden" name="typ" value="t0">
 			<div class="radio-custom-box">
 				<div class="form-box">
-					<label for="type">{{trans('messages.form-type')}} *</label>
+					<label for="typ">{{trans('messages.form-type')}} *</label>
 					<label class="radio-custom">
 						<span class="view-image-btn"></span>
-						<input type="radio" name="type" value="t0" required>
+						<input type="radio" name="typ" value="t0">
 						<div class="radio-image t0"></div>
 						<span class="radio-type">T0</span>
 					</label>
 					<label class="radio-custom">
 						<span class="view-image-btn"></span>
-						<input type="radio" name="type" value="t1" required>
+						<input type="radio" name="typ" value="t1">
 						<div class="radio-image t1"></div>
 						<span class="radio-type">T1</span>
 					</label>
 					<label class="radio-custom">
 						<span class="view-image-btn"></span>
-						<input type="radio" name="type" value="t2" required>
+						<input type="radio" name="typ" value="t2">
 						<div class="radio-image t2"></div>
 						<span class="radio-type">T2</span>
 					</label>
 					<label class="radio-custom">
 						<span class="view-image-btn"></span>
-						<input type="radio" name="type" value="t3" required>
+						<input type="radio" name="typ" value="t3">
 						<div class="radio-image t3"></div>
 						<span class="radio-type">T3</span>
 					</label>

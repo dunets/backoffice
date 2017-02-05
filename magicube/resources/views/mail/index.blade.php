@@ -38,7 +38,7 @@
 </head>
 <body>
 	<div class="message">
-		<h2>Uma nova mensagem: {{ $message-type }} @if(!empty($type)) Tipo: {{ $type }} @endif</h2>
+		<h2>Uma nova mensagem: {{ $message_type }} @if(!empty($typ)) Tipo: {{ $typ }} @endif</h2>
 		<hr>
 		<p><span class="input">Nome: </span>{{ $name }}</p>
 		<p><span class="input">Tel.: </span>{{ $tel }}</p>

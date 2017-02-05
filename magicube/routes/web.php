@@ -34,32 +34,33 @@ Route::get('/budget', function () {
 
 
 Route::get('/{locale}', function ($locale = 'pt') {
-	App::setLocale(valid($locale));
+	valid($locale);
 	return view('index');
 });
-Route::get('/{locale?}/works', function ($locale = 'pt') {
-	App::setLocale(valid($locale));
+Route::get('/{locale}/works', function ($locale = 'pt') {
+	valid($locale);
 	return view('works');
 });
 Route::get('/{locale}/orders', function ($locale = 'pt') {
-	App::setLocale(valid($locale));
+	valid($locale);
 	return view('orders');
 });
 Route::get('/{locale}/contact', function ($locale = 'pt') {
-	App::setLocale(valid($locale));
+	valid($locale);
 	return view('contact');
 });
 Route::get('/{locale}/budget', function ($locale = 'pt') {
-	App::setLocale(valid($locale));
+	valid($locale);
 	return view('budget');
 });
 
 Route::post('/orders', 'FormsController@orders');
-Route::post('/budget', 'FormsController@orders');
+Route::post('/budget', 'FormsController@budget');
 
 
 function valid($locale) {
-	if($locale != 'pt' && $locale != 'fr' && $locale != 'en')
-		$locale = 'pt';
-	return $locale;
+	if($locale != 'pt' && $locale != 'fr' && $locale != 'en' && strlen($locale) > 2)
+		App::setLocale('pt');
+	else
+		App::setLocale($locale);
 }

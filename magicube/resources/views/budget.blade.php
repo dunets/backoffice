@@ -18,8 +18,10 @@ active
 			<p>{{trans('messages.form-error')}}</p>
 		</div>
 	@endif
+	
 	<form action="/budget" method="post">
 		{!! csrf_field() !!}
+		<input type="hidden" name="locale" value="{{ App::getLocale() }}">
 		<div class="input-box">
 			<div class="form-b">
 				<label for="name">{{trans('messages.form-name')}} *</label>

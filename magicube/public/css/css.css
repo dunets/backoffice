@@ -49,7 +49,7 @@
 	padding: 0 20px
 }
 .nav-bar ul li:last-child {
-	padding-right: 0
+	padding-right: 0 !important
 }
 .home-btn {
 	padding-left: 0;
@@ -76,7 +76,12 @@ main {
 	width: 100%;
 	float: left;
 	padding: 0 3%;
-	box-sizing: border-box
+	box-sizing: border-box;
+	-webkit-transition: all .2s linear;
+-moz-transition: all .2s linear;
+-ms-transition: all .2s linear;
+-o-transition: all .2s linear;
+transition: all .2s linear;
 }
 /* temporary */
 .small-image {
@@ -427,6 +432,67 @@ main h2 {
 #works-container .block img {
 	width: 100%
 }
+
+body.loading main {
+	opacity: 0;
+	z-index: 999;
+}
+body .loader {
+	display: none
+}
+body.loading .loader {
+	display: block;
+	background: #fff url(/img/itens/loader.png) center no-repeat;
+	background-size: 150px;
+	width: 150px;
+	height: 150px;
+	position: fixed;
+	z-index: 999999;
+    top: 50%;
+    left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+}
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
 /*********************************
 ****** end MAIN ******************
 **********************************/
@@ -487,7 +553,7 @@ footer img:hover {
 **********************************/
 
 .big-image{
-	background: url(../img/Pauner/Pauner0.JPG) center no-repeat;
+	background: url(../img/Pauner/Pauner0.jpg) center no-repeat;
 	background-size: cover
 }
 
@@ -509,7 +575,7 @@ footer img:hover {
 .nav-langs a {
 	display: inline-block;
 	margin-left: 10px;
-	font-size: 1emm;
+	font-size: 1em;
 	font-size: 1vw
 }
 .nav-langs.pt .p {
@@ -522,6 +588,30 @@ footer img:hover {
 	color: #000
 }
 
+.alert {
+	width: 100%;
+	float: left;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	font-size: 1.3em;
+	font-size: 1.3vw;
+	border: 1px solid #000;
+	margin-bottom: 10px;
+}
+.alert.alert-danger {
+	border-color: red !important;
+	background: rgba(255,0,0,.3);
+}
+.alert-danger p {
+	color: red !important;
+}
+.alert.success {
+	border-color: green !important;
+	background: rgba(124, 252, 0, 0.38);
+}
+.alert.success p {
+	color: green !important;
+}
 
 @media (max-width: 800px) {
 	
@@ -661,5 +751,18 @@ footer img:hover {
 	}
 	.nav-bar .home-btn {
 		height: 60px !important;
+	}
+	.nav-langs {
+		top: auto;
+		right: 10px;
+		bottom: 10px !important;
+		z-index: 99999;
+		display: none;
+	}
+	.nav-langs a {
+		font-size: 21px;
+	}
+	.nav-bar.active .nav-langs {
+		display: block !important
 	}
 }

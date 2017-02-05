@@ -3,6 +3,7 @@
 namespace App;
 
 use Automattic\WooCommerce\Client;
+use Illuminate\Http\Request;
 
 
 class WooCommerce
@@ -12,8 +13,8 @@ class WooCommerce
 	 public function __construct(){
 		 $this->woocommerce = new Client(
 				'http://wordpress.dev',
-				'ck_988bd208ffc51d6a8bb917c4205e41cb7feb5f24',
-				'cs_122abc39b34f276c5f2ebf0ca9d5f076ee2af83f',
+				'ck_b673a1fda17e30086963ce27417b62db99bafd81',
+				'cs_26e95a20a3d0ce8cdfe6d2ab92e6c94868fd5c38',
 				[
 					'wp_api' => true,
 					'version' => 'wc/v1',
@@ -74,9 +75,61 @@ class WooCommerce
 	}
 	
 	/*PRODUCTS*/
-	public function getProductList ($params = [])
+	public function getProductTotalPages()
 	{
-		return $this->woocommerce->get('products', $params);
+		return 12;
+		$key = false;
+		$pages = 1;
+		while($key == false){
+			$data = $this->woocommerce->get(
+			'products',
+			[
+				'status' => 'any',
+				'page' => $pages,
+				'per_page' => '15'
+			]);
+			if(!empty($data))
+				$pages++;
+			else
+				$key=true;
+		}
+		return $pages;
+		
+		/*$ch = curl_init();
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_URL, 
+			'http://wordpress.dev/wp-json/wc/v1/products'
+		);
+		$headers = array(
+			'Content-Type:application/json',
+			'Authorization: Basic '. base64_encode("ck_988bd208ffc51d6a8bb917c4205e41cb7feb5f24:cs_122abc39b34f276c5f2ebf0ca9d5f076ee2af83f"),
+		);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		$content = curl_exec($ch);
+		return $content;
+		
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_URL, 
+			'http://wordpress.dev/wp-json/wc/v1/products'
+		);
+		curl_setopt($ch, CURLOPT_USERPWD,  "ck_988bd208ffc51d6a8bb917c4205e41cb7feb5f24:cs_122abc39b34f276c5f2ebf0ca9d5f076ee2af83f" );
+		$content = curl_exec($ch);
+		return $content;*/
+		
+	}
+	
+	public function getProductList($page)
+	{
+		$data = $this->woocommerce->get(
+			'products',
+			[
+				'status' => 'any',
+				'page' => $page,
+				'per_page' => '3'
+			]
+		);
+		return $data;
 	}
 	
 	public function getProduct($id = 0, $params = [])

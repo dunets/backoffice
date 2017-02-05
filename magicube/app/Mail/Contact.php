@@ -5,7 +5,6 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class Contact extends Mailable
 {
@@ -16,8 +15,11 @@ class Contact extends Mailable
      *
      * @return void
      */
-    public function __construct()
+	public $data;
+	
+    public function __construct($data)
     {
+		$this->data = $data;
         $this->build();
     }
 
@@ -30,9 +32,8 @@ class Contact extends Mailable
     {
         return $this->from('ivan@framastuidio.com')
 					->view('mail.index')
-					->name('Nova Mensagem')
 					->with([
-						'hello' => 'HELLOW WORLD'
+						'data' => $this->data['name']
 					]);
     }
 }

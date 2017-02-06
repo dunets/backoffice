@@ -23,6 +23,6 @@ class HomeController extends Controller
 	public function index()
 	{
 		$d = new WooCommerce;
-		return $d->getOrdersList(1);
+		return $d->getProductDiscountList(1);
 	}
 }

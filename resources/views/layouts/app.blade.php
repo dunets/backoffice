@@ -15,6 +15,7 @@
 	<link href="/css/simple-sidebar.css" rel="stylesheet">
 	<link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 	<link href="/css/sweetalert.css" rel="stylesheet">
+	<link href="/css/bootstrap-toggle.min.css" rel="stylesheet">
 	<!-- Scripts -->
 	<script>
 		window.Laravel = <?php echo json_encode([
@@ -101,6 +102,7 @@
 		</div>
 	</div>
 	<!-- Scripts -->
+	<!--<script src="/js/bootstrap-toggle.min.js"></script>-->
 	<script src="/js/sweetalert.min.js"></script>
 	<script src="/js/moment.min.js"></script>
 	<script src="/js/bootstrap-datetimepicker.min.js"></script>

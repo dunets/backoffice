@@ -111,6 +111,41 @@ class WooCommerce
 		
 	}
 	
+	public function getProductDiscountTotalPages()
+	{
+		$key = false;
+		$pages = 1;
+		while($key == false){
+			$data = $this->woocommerce->get(
+			'products',
+			[
+				'status' => 'publish',
+				'page' => $pages,
+				'category' => 11,
+				'per_page' => '10'
+			]);
+			if(!empty($data))
+				$pages++;
+			else
+				$key=true;
+		}
+		return --$pages;
+		
+		/*$ch = curl_init();
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_URL, 
+			'http://wordpress.dev/wp-json/wc/v1/products'
+		);
+		$headers = array(
+			'Content-Type:application/json',
+			'Authorization: Basic '. base64_encode("ck_988bd208ffc51d6a8bb917c4205e41cb7feb5f24:cs_122abc39b34f276c5f2ebf0ca9d5f076ee2af83f"),
+		);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		$content = curl_exec($ch);
+		return $content;*/
+		
+	}
+	
 	public function getProductList($page = 1)
 	{
 		$data = $this->woocommerce->get(
@@ -118,6 +153,22 @@ class WooCommerce
 			[
 				'status' => 'any',
 				'page' => $page,
+				'per_page' => '10'
+			]
+		);
+		return $data;
+	}
+	
+	public function getProductDiscountList($page = 1)
+	{
+		
+		
+		$data = $this->woocommerce->get(
+			'products',
+			[
+				'status' => 'publish',
+				'page' => $page,
+				'category' => 11,
 				'per_page' => '10'
 			]
 		);

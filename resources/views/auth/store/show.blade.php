@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('lateral')
-	@include('auth.store.lateral')
+	@include('auth.lateral.storeOrders')
 @endsection
 
 @section('content')
@@ -107,7 +107,7 @@
 							<div class="form-group">
 								<label for="manage_stock">Gerir estoque?</label>
 								<input type="hidden" name="manage_stock" value="false">
-								{!! Form::checkbox('manage_stock', $product['manage_stock'] ? 'true' : null, $product['manage_stock'], ['class' => 'action sku']) !!}
+								&nbsp; {!! Form::checkbox('manage_stock', $product['manage_stock'] ? 'true' : null, $product['manage_stock'], ['class' => 'action sku', 'data-toggle' => 'toggle']) !!}
 							</div>
 							<div class="sku-box @if(!$product['manage_stock'])hidden @endif">
 								<div class="form-group">
@@ -129,7 +129,7 @@
 							<div class="form-group">
 								<label for="sold_individually">Vender individualmente</label>
 								<input type="hidden" name="sold_individually" value="false">
-								{!! Form::checkbox('sold_individually',  $product['sold_individually'] ? 'true' : 'false', $product['sold_individually']) !!}
+								&nbsp; {!! Form::checkbox('sold_individually',  $product['sold_individually'] ? 'true' : 'false', $product['sold_individually'], ['data-toggle' => 'toggle']) !!}
 								Ative esta opção para permitir que apenas um item seja comprado por cada compra
 							</div>
 							

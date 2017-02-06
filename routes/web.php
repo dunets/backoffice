@@ -25,6 +25,8 @@ Route::resource('orders', 'OrdersController');
 
 Route::resource('users', 'UsersController');
 
+Route::resource('landing', 'LandingPrincipalPromotions');
+
 /********************************
 ***** upload routes *************
 *********************************/

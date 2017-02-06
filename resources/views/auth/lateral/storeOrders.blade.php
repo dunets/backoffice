@@ -1,7 +1,3 @@
-@section('id-container')
-	wrapper
-@stop
-		<!-- Sidebar -->
 <div id="sidebar-wrapper">
 	<ul class="sidebar-nav">
 		<li>
@@ -11,4 +7,4 @@
 			<a href="{{ url('/orders') }}">Encomendas</a>
 		</li>
 	</ul>
-	</div>
+</div>

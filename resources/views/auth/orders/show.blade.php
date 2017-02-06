@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('lateral')
-	@include('auth.store.lateral')
+	@include('auth.lateral.storeOrders')
 @endsection
 
 @section('content')

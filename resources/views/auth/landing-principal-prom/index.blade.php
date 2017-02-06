@@ -1,24 +1,21 @@
 @extends('layouts.app')
 
 @section('lateral')
-	@include('auth.lateral.storeOrders')
+	@include('auth.lateral.landing')
 @endsection
 
 @section('content')
-	<h1>Produtos</h1>
+	<h1>Selecionar os produtos a apresentar</h1>
+	<p>Caregoria: <code>saldos</code></p>
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<!--<th>#</th>-->
 				<th>ID</th>
 				<th>IMG</th>
 				<th>Nome</th>
 				<th>Stock</th>
 				<th>Preço</th>
-				<th>Categorias</th>
-				<th>Tags</th>
 				<th>Tipo</th>
-				<th>Data</th>
 				<th>Ações</th>
 			</tr>
 		</thead>
@@ -48,31 +45,6 @@
 						@endif
 					</td>
 					<td>
-						@if(!empty($product['categories']))
-							@foreach($product['categories'] as $category)
-								{{$category['name']}}@if ($category != end($product['categories'])), @endif
-							@endforeach
-						@else
-							-
-						@endif
-					</td>
-					<td>
-						@if(!empty($product['tags']))
-							@foreach($product['tags'] as $tag)
-								{{$tag['name']}}@if ($tag != end($product['tags'])), @endif
-							@endforeach
-						@else
-							-
-						@endif
-					</td>
-					<td>
-						@if($product['virtual'])
-							Virtual
-						@else
-							Simples
-						@endif
-					</td>
-					<td>
 						@if($product['status'] == 'publish')
 							Publicado em: <br>
 							{{ date('d/m, Y', strtotime($product['date_modified'])) }}
@@ -83,16 +55,13 @@
 						@endif
 					</td>
 					<td>
-						<div class="btn-group btn-group-primary">
-								<a href="{{ url('store')}}/{{$product['id']}}" class="btn btn-primary" type="button">Editar</a>
-							<button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button"><span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="{{ $product['permalink'] }}" target="_blank">Ver na loja</a></li>
-								<li class="divider"></li>
-								<li><a href="{{ url('store')}}/{{$product['id']}}" class="action delete-list">Apagar</a></li>
-							</ul>
-						</div>
+						<input class="switch-prom" type="checkbox" _url="{{ url('/landing') }}" _product_id="{{ $product['id'] }}"
+							@foreach ($sales as $sale)
+								@if ($sale['product_id'] == $product['id'])
+									 checked
+								@endif
+							@endforeach
+						 data-toggle="toggle">
 					</td>
 				</tr>
 			@endforeach

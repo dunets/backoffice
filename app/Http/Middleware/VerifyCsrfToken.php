@@ -12,6 +12,8 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-        'wordpress/upload'
+        'wordpress/upload',
+		'landing',
+		'landing/*',
     ];
 }

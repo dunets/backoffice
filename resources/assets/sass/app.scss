@@ -41,9 +41,14 @@ h4 .schedule {
 	text-decoration: underline !important;
 	cursor: pointer !important
 }
-.action.delete-edit {
+.action.delete-edit,
+.action.delete-order {
 	color: red !important
 }
 .sidebar-nav{
 	padding-top: 60px !important
+}
+
+thead {
+	background: #fff
 }

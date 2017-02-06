@@ -22,12 +22,7 @@ class HomeController extends Controller
 	 */
 	public function index()
 	{
-		//return view('auth.home.index');
 		$d = new WooCommerce;
-		//return $d->getProductList();
-		return $d->getProduct('9');
-		return $d->getProductList([
-			'status' => 'any'
-		]);
+		return $d->getOrdersList(1);
 	}
 }

@@ -98,27 +98,30 @@
 			@endforeach
 		@endif
 	</table>
-	<nav aria-label="Page navigation">
-		<ul class="pagination" style="float:right">
-			<li class="@if($page == 1)disabled @endif">
-				<a href="@if($page > 1) {{ url('/store?page=' . ($page - 1)) }} @endif" aria-label="Previous">
-					<span aria-hidden="true">&laquo;</span>
-				</a>
-			</li>
-			@for ($i = 1; $i < ($pages+1) && $i < 11; $i++)
-				@if($i == 10)
-					<li class="disabled"><a>...</a></li>
-				@else
-					<li class="@if($page == $i)active @endif"><a href="{{ url('/store?page=' . $i) }}">{{ $i }}</a></li>
-				@endif
-			@endfor
-			<li class="@if($page == $pages)disabled @endif">
-				<a href="@if($page < $pages) {{ url('/store?page=' . ($page + 1)) }} @endif" aria-label="Next">
-					<span aria-hidden="true">&raquo;</span>
-				</a>
-			</li>
-		</ul>
-	</nav>
+
+	@if ($pages > 1)
+		<nav aria-label="Page navigation">
+			<ul class="pagination" style="float:right">
+				<li class="@if($page == 1)disabled @endif">
+					<a href="@if($page > 1) {{ url('/store?page=' . ($page - 1)) }} @endif" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+				@for ($i = 1; $i < ($pages+1) && $i < 11; $i++)
+					@if($i == 10)
+						<li class="disabled"><a>...</a></li>
+					@else
+						<li class="@if($page == $i)active @endif"><a href="{{ url('/store?page=' . $i) }}">{{ $i }}</a></li>
+					@endif
+				@endfor
+				<li class="@if($page == $pages)disabled @endif">
+					<a href="@if($page < $pages) {{ url('/store?page=' . ($page + 1)) }} @endif" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	@endif
 
 
 	<div class="hidden">

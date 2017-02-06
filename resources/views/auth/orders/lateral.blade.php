@@ -5,10 +5,10 @@
 <div id="sidebar-wrapper">
 	<ul class="sidebar-nav">
 		<li>
-			<a href="{{ url('/store') }}">Produtos</a>
+			<a href="#">Produtos</a>
 		</li>
 		<li>
-			<a href="{{ url('/orders') }}">Encomendas</a>
+			<a href="#">Encomendas</a>
 		</li>
 	</ul>
 	</div>

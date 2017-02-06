@@ -71,6 +71,28 @@ $(document).ready(function(){
 		);
 	});
 	
+	$('.action.delete-orders, .action.delete-orders-list').click(function(e){
+		e.preventDefault();
+		var el = $(this);
+		swal({
+			title: "Atenção!",
+			text: "Tem a certeza que pretende permanentemente apagar a encomenda?",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "Sim, tenho a certeza",
+			cancelButtonText: "Cancelar",
+			closeOnConfirm: false
+			},
+			function(){
+				if($(el).hasClass('delete-orders'))
+					$('#delete_form').submit()
+				else if($(el).hasClass('delete-orders-list'))
+					$('#delete_form').attr('action', $(el).attr('href')).submit(); 
+			}
+		);
+	});
+	
 	
 	
 	/********************************

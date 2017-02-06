@@ -35,9 +35,7 @@ class StoreController extends Controller
 	
 	public function update(Request $data, $product_id)
 	{
-		//return $data->except(['_method', '_token', 'description', 'short-description']);
 		$w = new WooCommerce;
-		//return $data = $w->validateProduct($this, $data);
 		$data = $w->validateProduct($this, $data);
 		$w->updateProduct($product_id, $data);
 		return redirect('/store');

@@ -38,13 +38,15 @@ class StoreController extends Controller
 		$w = new WooCommerce;
 		$data = $w->validateProduct($this, $data);
 		$w->updateProduct($product_id, $data);
-		return redirect('/store');
+		
+		return redirect()->back()->with('success', 'O produto foi editado com sucesso');
 	}
 	
 	public function destroy($product_id)
 	{
 		$w = new WooCommerce;
 		$w->deleteProduct($product_id);
-		return redirect('/store');
+		
+		return redirect('/store')->with('success', 'O produto foi eliminado com sucesso');
 	}
 }

@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('home', 'HomeController@index');
+Route::resource('home', 'HomeController');
 
 Route::resource('store', 'StoreController');
 
@@ -25,7 +25,9 @@ Route::resource('orders', 'OrdersController');
 
 Route::resource('users', 'UsersController');
 
-Route::resource('landing', 'LandingPrincipalPromotions');
+Route::resource('landing_prom', 'LandingPrincipalPromotions');
+
+Route::resource('landing', 'LandingPrincipal');
 
 /********************************
 ***** upload routes *************

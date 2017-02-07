@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
+@section('store_active')
+active
+@endsection
+
+@section('orders_active')
+active
+@endsection
+
 @section('lateral')
 	@include('auth.lateral.storeOrders')
 @endsection
 
 @section('content')
-
-	@if(count($errors) > 0)
-		<div class="alert alert-danger">
-			@foreach($errors->all() as $error)
-				<p>{{ $error }}</p>
-			@endforeach
-		</div>
-	@endif
 
 	<h1>Encomenda #{{ $order['number'] }} 
 		<span class="label label-default">
@@ -32,7 +32,24 @@
 				Falhada
 			@endif
 		</span>
-</h1>
+	</h1>
+	
+
+	@if(count($errors) > 0)
+		<div class="alert alert-danger">
+			@foreach($errors->all() as $error)
+				<p>{{ $error }}</p>
+			@endforeach
+		</div>
+	@endif
+
+
+	@if (\Session::has('success'))
+		<div class="alert alert-success">
+			<p>{!! \Session::get('success') !!}</p>
+		</div>
+	@endif
+
 	<hr>
 	<h4>Informações gerais da encomenda</h4>
 	<table class="table table-hover">

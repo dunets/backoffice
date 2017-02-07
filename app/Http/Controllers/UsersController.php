@@ -50,7 +50,7 @@ class UsersController extends Controller
 
 		User::create($data);
 
-		return redirect('/users');
+		return redirect('/users')->with('success', 'Utilizador criado com sucesso');
 	}
 	
 	public function update (Request $r, $id)
@@ -77,7 +77,7 @@ class UsersController extends Controller
 		
 		$user->save();
 
-		return redirect('/users');
+		return redirect()->back()->with('success', 'Utilizador editado com sucesso');
 	}
 	
 	public function destroy ($id)
@@ -93,6 +93,6 @@ class UsersController extends Controller
 			return redirect()->back()->withErrors(['Impossível eliminar a última conta de utilizador, crie outra antes de eliminar esta']);
 		
 		$user->delete();
-		return redirect('/users');
+		return redirect('/users')->with('success', 'Utilizador eliminado com sucesso');
 	}
 }

@@ -16,6 +16,9 @@ class CreateSaleListsTable extends Migration
         Schema::create('sale_lists', function (Blueprint $table) {
             $table->increments('id');
 			$table->integer('product_id')->unique();
+			$table->string('url');
+			$table->string('img');
+			$table->string('price');
             $table->timestamps();
         });
     }

@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('store_active')
+active
+@endsection
+
+@section('products_active')
+active
+@endsection
+
 @section('lateral')
 	@include('auth.lateral.storeOrders')
 @endsection
@@ -11,6 +19,12 @@
 			@foreach($errors->all() as $error)
 				<p>{{ $error }}</p>
 			@endforeach
+		</div>
+	@endif
+
+	@if (\Session::has('success'))
+		<div class="alert alert-success">
+			<p>{!! \Session::get('success') !!}</p>
 		</div>
 	@endif
 

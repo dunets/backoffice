@@ -37,13 +37,15 @@ class OrdersController extends Controller
 		$w = new WooCommerce;
 		$data = $w->validateOrder($this, $data);
 		$w->updateOrder($id, $data);
-		return redirect('/orders');
+		
+		return redirect()->back()->with('success', 'O estado da encomenda foi editado com sucesso');
 	}
 	
 	public function destroy($id)
 	{
 		$w = new WooCommerce;
 		$w->deleteOrder($id);
-		return redirect('/orders');
+		
+		return redirect('/orders')->with('success', 'A encomenda foi eliminada com sucesso');
 	}
 }

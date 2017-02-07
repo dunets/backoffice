@@ -4,6 +4,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="shortcut icon" href="/images/favicon.ico">
 
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
@@ -11,11 +13,11 @@
 	<title>{{ config('app.name', 'Laravel') }}</title>
 
 	<!-- Styles -->
-	<link href="/css/app.css" rel="stylesheet">
-	<link href="/css/simple-sidebar.css" rel="stylesheet">
-	<link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-	<link href="/css/sweetalert.css" rel="stylesheet">
-	<link href="/css/bootstrap-toggle.min.css" rel="stylesheet">
+	<link href="/css/admin/app.css" rel="stylesheet">
+	<link href="/css/admin/simple-sidebar.css" rel="stylesheet">
+	<link href="/css/admin/bootstrap-datetimepicker.min.css" rel="stylesheet">
+	<link href="/css/admin/sweetalert.css" rel="stylesheet">
+	<link href="/css/admin/bootstrap-toggle.min.css" rel="stylesheet">
 	<!-- Scripts -->
 	<script>
 		window.Laravel = <?php echo json_encode([
@@ -38,7 +40,7 @@
 				</button>
 
 				<!-- Branding Image -->
-				<a class="navbar-brand" href="{{ url('/home') }}">
+				<a class="navbar-brand" href="{{ url('/landing') }}">
 					{{ config('app.name', 'Divanesse') }}
 				</a>
 			</div>
@@ -47,10 +49,9 @@
 				<!-- Left Side Of Navbar -->
 				@if (!Auth::guest())
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="{{ url('/store') }}">Loja</a></li>
-						<li><a href="{{ url('/landing') }}">Estrutura p. inicial</a></li>
-						<li><a href="{{ url('/recrute') }}">Estrutura p. recrutamento</a></li>
-						<li><a href="{{ url('/users') }}">Utilizadores</a></li>
+						<li class="@yield('store_active')"><a href="{{ url('/store') }}">Loja</a></li>
+						<li class="@yield('landing_active')"><a href="{{ url('/landing') }}">Estrutura p. inicial</a></li>
+						<li class="@yield('users_active')"><a href="{{ url('/users') }}">Utilizadores</a></li>
 
 					</ul>
 				@endif
@@ -102,10 +103,10 @@
 		</div>
 	</div>
 	<!-- Scripts -->
-	<!--<script src="/js/bootstrap-toggle.min.js"></script>-->
-	<script src="/js/sweetalert.min.js"></script>
-	<script src="/js/moment.min.js"></script>
-	<script src="/js/bootstrap-datetimepicker.min.js"></script>
+
+	<script src="/js/admin/sweetalert.min.js"></script>
+	<script src="/js/admin/moment.min.js"></script>
+	<script src="/js/admin/bootstrap-datetimepicker.min.js"></script>
 	<script src="/tinymce/tinymce.min.js"></script>
 	<script src="/tinymce/jquery.tinymce.min.js"></script>
 	<script>
@@ -113,6 +114,6 @@
 			format: 'YYYY-MM-DD'
 		});
 	</script>
-	<script src="/js/app.js"></script>
+	<script src="/js/admin/app.js"></script>
 </body>
 </html>

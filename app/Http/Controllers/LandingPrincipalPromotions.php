@@ -26,7 +26,7 @@ class LandingPrincipalPromotions extends Controller
 		
 		$sales = SaleList::all();
 		
-		return view('auth.landing-principal-prom.index', compact(array('data', 'pages', 'page', 'sales')));
+		return view('auth.landing_principal_prom.index', compact(array('data', 'pages', 'page', 'sales')));
 	}
 	
 	public function store (Request $r)
@@ -36,8 +36,16 @@ class LandingPrincipalPromotions extends Controller
 		[
 			'product_id' => 'max:15|unique:sale_lists|required',
 		]);
+		
+		$w = new WooCommerce;
+		$product = $w->getProduct($r->input('product_id'));
+		
 		$sale = new SaleList();
 		$sale->product_id = $r->input('product_id');
+		$sale->url = $product['permalink'];
+		$sale->img = $product['images'][0]['src'];
+		$sale->price = $product['price_html'];
+		
 		$sale->save();
 		
 		return response()->json(['message' => 'O produto foi ADICIONADO à lista a apresentar no site'], 200);

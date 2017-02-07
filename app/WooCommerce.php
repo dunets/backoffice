@@ -77,6 +77,16 @@ class WooCommerce
 	}
 	
 	/*PRODUCTS*/
+	public function getProductPriceHTML($id = 0)
+	{
+		return $this->woocommerce->get('products/' . $id)['price_html'];
+	}
+	
+	public function getProductPrice($id = 0)
+	{
+		return $this->woocommerce->get('products/' . $id)['price'];
+	}
+	
 	public function getProductTotalPages()
 	{
 		$key = false;

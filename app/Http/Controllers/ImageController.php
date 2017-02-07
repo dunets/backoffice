@@ -17,12 +17,10 @@ class ImageController extends Controller
 		$response = response()->make($file, 200)->header('Content-Type', 'image/jpeg');
 		
 		if(!Storage::disk('local')->has($file))
-			return response()->make('Error', 500);
-		return json_encode(
-			array(
-			'location' => $response
-			)
-		);
+			return response()->json([], 500);
+		
+		return response()->json(['location' => '/' . $file], 200);
+		
 	}
 	
 	public function showWordpress($image_name)
@@ -42,20 +40,4 @@ class ImageController extends Controller
 		return $response;
 	}
 	
-	public function imageUploadPost(Request $request)
-	{
-		$this->validate($request, [
-					'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-			]);
-
-			$imageName = time().'.'.$request->image->getClientOriginalExtension();
-			$request->image->move(public_path('images'), $imageName);
-
-		/*return back()
-			->with('success','Image Uploaded successfully.')
-			->with('location',$imageName);*/
-		
-		//return json_encode(array('location' => $imageName));
-		return $imageName;
-	}
 }

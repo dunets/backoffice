@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
+@section('users_active')
+active
+@endsection
+
 @section('content')
+
+	<div class="col-md-9">
+		<h1>Utilizadores</h1>
+	</div>
+	<div class="col-md-3">
+		<a href="{{ url('users/create') }}" class="btn btn-primary btn-lg" style="float:right; margin-top: 20px;">Criar novo</a>
+	</div>
+
 	@if(count($errors) > 0)
 		<div class="alert alert-danger">
 			@foreach($errors->all() as $error)
@@ -8,12 +20,14 @@
 			@endforeach
 		</div>
 	@endif
-	<div class="col-md-9">
-		<h1>Utilizadores</h1>
-	</div>
-	<div class="col-md-3">
-		<a href="{{ url('users/create') }}" class="btn btn-primary btn-lg" style="float:right; margin-top: 20px;">Criar novo</a>
-	</div>
+
+
+	@if (\Session::has('success'))
+		<div class="alert alert-success">
+			<p>{!! \Session::get('success') !!}</p>
+		</div>
+	@endif
+
 	<table class="table table-striped">
 		<thead>
 			<tr>

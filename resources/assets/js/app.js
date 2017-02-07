@@ -133,9 +133,6 @@ $(document).ready(function(){
 						data._method = 'DELETE'
 					}
 					
-					console.log("DATA:");
-					console.log(data);
-					
 					$.ajax({
 						url: url,
 						type: 'post',
@@ -163,6 +160,7 @@ $(document).ready(function(){
 	/********************************
 	**** editors ********************
 	********************************/
+	
 	
 	tinymce.init({
 		selector:'.big-text-editor',
@@ -199,13 +197,23 @@ $(document).ready(function(){
 				var blobCache = tinymce.activeEditor.editorUpload.blobCache;
 				var blobInfo = blobCache.create(id, file);
 				blobCache.add(blobInfo);
-
+				
+				console.log('file:');
+				console.log(file);
 				// call the callback and populate the Title field with the file name
-				cb(blobInfo.blobUri(), { title: file.name });
+				cb(blobInfo.blobUri(), { title: file.name, src : file.src });
 			};
 
 			input.click();
 		},
+		file_browser_callback: function(field_name, url, type, win) {
+			console.log("file_browser_callback");
+			console.log(field_name);
+			console.log(url);
+			console.log(type);
+			console.log(win);
+			win.document.getElementById(field_name).value = 'my browser value';
+  		},
 		images_upload_url: '/wordpress/upload',
 		automatic_uploads: true
 
@@ -228,9 +236,9 @@ $(document).ready(function(){
 
 var createMessage = function(message, type) {
 	if(type == 200)
-		$('h1').after('<div class="alert alert-success">' + message + '</div>');
+		$('h1').before('<div class="alert alert-success">' + message + '</div>');
 	if(type == 500)
-		$('h1').after('<div class="alert alert-danger">' + message + '</div>');
+		$('h1').before('<div class="alert alert-danger">' + message + '</div>');
 	setTimeout(function(){
 		$('.alert').remove();
 	},3000);

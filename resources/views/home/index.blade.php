@@ -117,7 +117,7 @@
 						@endif
                     </div>
                     <div class="col-md-4 text-center">
-                        <img src="{!! $data['img_destaque_down'] !!}" alt="Destaque baixo">
+                        <img style="max-height:420px" src="{!! $data['img_destaque_down'] !!}" alt="Destaque baixo">
                     </div>
                     <div class="col-md-4">
                        @if(!empty($data['features_title_4']))
@@ -147,7 +147,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 text-center">
-                        <img src="{!! $data['img_destaque_down'] !!}" alt="Imagem da linha">
+                        <img style="max-height:400px" src="{!! $data['img_destaque_line'] !!}" alt="Imagem da linha">
                     </div>
                     <div class="col-md-6">
                         <div class="content mt-100">
@@ -201,7 +201,7 @@
 								{!! $data['contact_text'] !!}
 							</div>
                             <div class="col-lg-6 offset-lg-3">
-								<form id="contact_form" action="/home" method="post">
+								<form id="contact_form" action="/" method="post">
 									{{ csrf_field() }}
 									<div class="form-group">
 									  <input type="text" name="name" class="form-control" placeholder="O seu nome aqui">
@@ -210,7 +210,7 @@
 									  <input type="text" name="email" class="form-control" placeholder="O seu endereço de email aqui">
 									</div>
 									<div class="form-group">
-										<textarea rows="4" name="message" class="form-control" placeholder="A sua mensagem aqui"></textarea>
+										<textarea rows="4" name="mensagem" class="form-control" placeholder="A sua mensagem aqui"></textarea>
 									</div>
 									<div class="form-group">
 										<button type="submit" class="btn btn-main">Enviar</button>

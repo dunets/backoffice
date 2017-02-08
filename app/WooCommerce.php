@@ -12,15 +12,15 @@ class WooCommerce
 	
 	 public function __construct()
 	 {
-		 $this->woocommerce = new Client(
-				'http://wordpress.dev',
-				'ck_b673a1fda17e30086963ce27417b62db99bafd81',
-				'cs_26e95a20a3d0ce8cdfe6d2ab92e6c94868fd5c38',
+		  $this->woocommerce = new Client(
+				'http://divanessestore.ru',
+				'ck_06942ca0e3de66af89ff2c3f410d441b4c08e0ea',
+				'cs_3a57e565c9363001a084d98af1417e18a05f77d5',
 				[
 					'wp_api' => true,
 					'version' => 'wc/v1',
 				]
-			);
+		);
 	 }
 	
 	public function getStoreInfo ()
@@ -131,7 +131,7 @@ class WooCommerce
 			[
 				'status' => 'publish',
 				'page' => $pages,
-				'category' => 11,
+				'category' => 6,
 				'per_page' => '10'
 			]);
 			if(!empty($data))
@@ -178,7 +178,7 @@ class WooCommerce
 			[
 				'status' => 'publish',
 				'page' => $page,
-				'category' => 11,
+				'category' => 6,
 				'per_page' => '10'
 			]
 		);

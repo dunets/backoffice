@@ -11,13 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::resource('home', 'HomeController');
+Route::resource('/', 'HomeController');
 
 Route::resource('store', 'StoreController');
 

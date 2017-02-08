@@ -24,8 +24,7 @@ class HomeController extends Controller
 	 */
 	public function index()
 	{
-		//$w = new Woocommerce();
-		//return $w->getProduct(9);
+		
 		$data = Landing::first();
 		$sales = SaleList::all();
 		
@@ -35,7 +34,6 @@ class HomeController extends Controller
 	public function store (Request $r)
 	{
 		
-		$landing = Landing::first();
 		
 		$this->validate($r,
 		[
@@ -44,13 +42,13 @@ class HomeController extends Controller
 			'mensagem' => 'max:20000|required',
 		]);
 		
-		$name = $request->input('name');
-		$email= $request->input('email');
-		$mensagem= $request->input('mensagem');
+		$name = $r->input('name');
+		$email= $r->input('email');
+		$mensagem= $r->input('mensagem');
 		
 		
 		$my_mail = Landing::first()->receive_email;
-		$subject = "Uma nova mensagem do site DIVANESSE"; 
+		$subject = "Uma nova mensagem do site DIVANESSE";
 
 
 		$message = view('mail.index', [
@@ -63,9 +61,8 @@ class HomeController extends Controller
 		$headers  = "Content-type: text/html; charset=utf-8 \r\n";
 		$headers .= "From: DIVANESSE<". $my_mail .">\r\n";
 	
-
 		mail($my_mail, $subject, $message, $headers);
 		
-		return response()->json([], 200);
+		return response()->json(['success'=>true], 200);
 	}
 }
